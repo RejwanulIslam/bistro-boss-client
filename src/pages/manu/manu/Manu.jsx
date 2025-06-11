@@ -1,15 +1,18 @@
 
-import { Helmet } from 'react-helmet-async'
+import Cover from '../../shared/Cover'
+import manuImg from '../../../assets/menu/banner3.jpg'
+import PopularManu from '../../home/PopularManu'
 
 export default function Manu() {
     return (
         <div>
-            <Helmet>
-                <title>Bistro-Boss|Menu</title>
-            </Helmet>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                 Odit minus praesentium repudiandae blanditiis
-                 eos accusantium ullam culpa, ea sapiente. Mollitia?</p>
+          
+            <Cover img={manuImg} title='Our Menu'></Cover>
+            <PopularManu></PopularManu>
+            <Cover img={manuImg} title='Our Menu'></Cover>
+            <PopularManu></PopularManu>
+            <Cover img={manuImg} title='Our Menu'></Cover>
+            <PopularManu></PopularManu>
         </div>
     )
 }
