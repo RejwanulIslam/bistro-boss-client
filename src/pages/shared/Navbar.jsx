@@ -1,8 +1,10 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 export default function Navbar() {
     const navOption=<>
-    <li><a>Item 1</a></li>
+    <li><NavLink to='/'>Home</NavLink></li>
+    <li><NavLink to='/menu'>Our Menu</NavLink></li>
     </>
     return (
         <div className="navbar fixed z-10 bg-opacity-30 max-w-screen-xl bg-black text-white">
