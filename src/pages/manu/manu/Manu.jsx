@@ -8,11 +8,7 @@ export default function Manu() {
         <div>
           
             <Cover img={manuImg} title='Our Menu'></Cover>
-            <PopularManu></PopularManu>
-            <Cover img={manuImg} title='Our Menu'></Cover>
-            <PopularManu></PopularManu>
-            <Cover img={manuImg} title='Our Menu'></Cover>
-            <PopularManu></PopularManu>
+            
         </div>
     )
 }
