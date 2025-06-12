@@ -1,10 +1,10 @@
 import { Parallax } from 'react-parallax';
-export default function Cover({ img, title }) {
+export default function Cover({ coverImg, title }) {
     return (
 
         <Parallax
             blur={{ min: -100, max: 100 }}
-            bgImage={img}
+            bgImage={coverImg}
             bgImageAlt="the menu"
             strength={-200}
         >
