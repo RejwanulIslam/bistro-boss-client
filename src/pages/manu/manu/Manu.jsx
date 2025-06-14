@@ -24,10 +24,10 @@ export default function Manu() {
             {/* offerd menu item */}
             <MenuCategory items={offered}></MenuCategory>
             {/* dessert menu items */}
-            <MenuCategory coverImg={dessertImg} items={dessert} title={'DESSERTS'}></MenuCategory>
-            <MenuCategory coverImg={pizzaImg} items={pizza} title={'PIZZA'}></MenuCategory>
+            <MenuCategory coverImg={dessertImg} items={dessert} title={'dessert'}></MenuCategory>
+            <MenuCategory coverImg={pizzaImg} items={pizza} title={'pizza'}></MenuCategory>
             <MenuCategory coverImg={saladImg} items={salad} title={'salad'}></MenuCategory>
-            <MenuCategory coverImg={soupImg} items={soup} title={'DESSERTS'}></MenuCategory>
+            <MenuCategory coverImg={soupImg} items={soup} title={'soup'}></MenuCategory>
         </div>
     )
 }

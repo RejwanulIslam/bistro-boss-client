@@ -1,6 +1,7 @@
 import React from 'react'
 import MenuItems from '../../shared/MenuItems'
 import Cover from '../../shared/Cover'
+import { Link } from 'react-router-dom'
 
 export default function MenuCategory({ items, title, coverImg }) {
   return (
@@ -12,7 +13,9 @@ export default function MenuCategory({ items, title, coverImg }) {
           items.map(item => <MenuItems item={item}></MenuItems>)
         }
       </div>
-
+<Link to={`/order/${title}`}>
+      <button className='btn btn-outline border-0 border-b-4 block '>Order Now</button>
+</Link>
     </div>
   )
 }

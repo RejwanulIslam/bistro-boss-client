@@ -5,8 +5,11 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import useManu from '../../../hooks/useManu';
 import FoodCard from '../../../compoment/FoodCard';
+import { useParams } from 'react-router-dom';
 export default function Order() {
     const [tabIndex, settabIndex] = useState(0)
+    const {category} = useParams()
+    console.log(category)
     const [manu] = useManu()
     const dessert = manu.filter(item => item.category === 'dessert')
     const soup = manu.filter(item => item.category === 'soup')
