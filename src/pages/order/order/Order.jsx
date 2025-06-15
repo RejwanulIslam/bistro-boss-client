@@ -61,7 +61,7 @@ export default function Order() {
                         {
                             offered.map(item => <FoodCard item={item}> </FoodCard>)
                         }
-                    </div>
+                    </div> 
                 </TabPanel>
             </Tabs>
         </div>
