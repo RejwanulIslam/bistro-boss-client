@@ -8,7 +8,7 @@ import FoodCard from '../../../compoment/FoodCard';
 import { useParams } from 'react-router-dom';
 export default function Order() {
     const [tabIndex, settabIndex] = useState(0)
-    const {category} = useParams()
+    const { category } = useParams()
     console.log(category)
     const [manu] = useManu()
     const dessert = manu.filter(item => item.category === 'dessert')
@@ -36,7 +36,7 @@ export default function Order() {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                     <div className='grid md:grid-cols-3 gap-10'>
+                    <div className='grid md:grid-cols-3 gap-10'>
                         {
                             pizza.map(item => <FoodCard item={item}></FoodCard>)
                         }
@@ -50,19 +50,19 @@ export default function Order() {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                   <div className='grid md:grid-cols-3 gap-10'>
+                    <div className='grid md:grid-cols-3 gap-10'>
                         {
                             dessert.map(item => <FoodCard item={item}></FoodCard>)
                         }
                     </div>
                 </TabPanel>
                 <TabPanel>
-                     <div className='grid md:grid-cols-3 gap-10'>
+                    <div className='grid md:grid-cols-3 gap-10'>
                         {
-                            offered.map(item => <FoodCard item={item}></FoodCard>)
+                            offered.map(item => <FoodCard item={item}> </FoodCard>)
                         }
                     </div>
-                  </TabPanel>
+                </TabPanel>
             </Tabs>
         </div>
     )
