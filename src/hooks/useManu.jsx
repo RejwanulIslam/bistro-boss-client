@@ -4,7 +4,7 @@ const useManu = () => {
     const [manu, setmanu] = useState([])
     const [loding, setloding] = useState(true)
     useEffect(() => {
-        fetch('manu.json')
+        fetch('http://localhost:5000/menu')
             .then(res => res.json())
             .then(data => {
                 setmanu(data)

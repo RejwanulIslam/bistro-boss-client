@@ -7,8 +7,11 @@ import useManu from '../../../hooks/useManu';
 import FoodCard from '../../../compoment/FoodCard';
 import { useParams } from 'react-router-dom';
 export default function Order() {
-    const [tabIndex, settabIndex] = useState(0)
+    const categoris = ['salad', 'pizza', 'soup', 'dessert', 'offered']
     const { category } = useParams()
+     const initialIndex=categoris.indexOf(category)
+     console.log(initialIndex)
+    const [tabIndex, settabIndex] = useState(initialIndex)
     console.log(category)
     const [manu] = useManu()
     const dessert = manu.filter(item => item.category === 'dessert')
@@ -61,7 +64,7 @@ export default function Order() {
                         {
                             offered.map(item => <FoodCard item={item}> </FoodCard>)
                         }
-                    </div> 
+                    </div>
                 </TabPanel>
             </Tabs>
         </div>
