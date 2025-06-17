@@ -6,9 +6,10 @@ import Fetured from './Fetured'
 import Testimonis from './Testimonis'
 
 export default function Home() {
+
   return (
     <div>
-      
+
       <Banar></Banar>
       <Category></Category>
       <PopularManu></PopularManu>
