@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useEffect, useRef } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
+import { authContex } from '../../contex/authprovider/Authprovider';
 export default function Login() {
+    const {passwordAuth}=useContext(authContex)
     const [disable, setdisable]=useState(true)
     const captchaRef = useRef()
     useEffect(() => {
@@ -12,6 +14,7 @@ export default function Login() {
         const form = e.target
         const email = form.email.value
         const password = form.password.value
+        passwordAuth(email,password)
         console.log({ email, password })
     }
 

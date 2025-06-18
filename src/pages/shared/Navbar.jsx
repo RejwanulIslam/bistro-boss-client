@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
+import { authContex } from '../../contex/authprovider/Authprovider'
 
 export default function Navbar() {
+    const authInfo=useContext(authContex)
+    console.log(authInfo)
     const navOption=<>
     <li><NavLink to='/'>Home</NavLink></li>
     <li><NavLink to='/menu'>Our Menu</NavLink></li>

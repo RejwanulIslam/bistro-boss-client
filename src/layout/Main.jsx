@@ -10,7 +10,7 @@ export default function Main() {
    //option-2
   //const locationPathname = location.pathname.includes('/login')
 
-  console.log(locationPathname)
+ // console.log(locationPathname)
   return (
     <div>
       {locationPathname || <Navbar></Navbar>}
