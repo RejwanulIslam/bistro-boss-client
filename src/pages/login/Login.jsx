@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import { authContex } from '../../contex/authprovider/Authprovider';
 export default function Login() {
-    const {passwordAuth}=useContext(authContex)
+    const {passwordLogin}=useContext(authContex)
     const [disable, setdisable]=useState(true)
     const captchaRef = useRef()
     useEffect(() => {
@@ -14,13 +14,13 @@ export default function Login() {
         const form = e.target
         const email = form.email.value
         const password = form.password.value
-        passwordAuth(email,password)
+        passwordLogin(email,password)
         console.log({ email, password })
     }
 
     const validateCaptchar = () => {
         const Captcha_value = captchaRef.current.value;
-        //console.log(Captcha_value)
+        console.log(Captcha_value)
         if(validateCaptcha(Captcha_value)){
             setdisable(false)
         }
@@ -60,7 +60,8 @@ export default function Login() {
 
                         </div>
                         <div className="form-control mt-6">
-                            <button disabled={disable} className="btn btn-primary">Login</button>
+                           <input type='submit'disabled={disable} className="btn btn-primary "></input>
+                            {/* <button disabled={disable} className="btn btn-primary">Login</button> */}
                         </div>
                     </form>
                 </div>

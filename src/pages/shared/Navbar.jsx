@@ -10,6 +10,7 @@ export default function Navbar() {
     <li><NavLink to='/menu'>Our Menu</NavLink></li>
     <li><NavLink to='/order/salad'>Order Food</NavLink></li>
     <li><NavLink to='/login'>Login</NavLink></li>
+    <li><NavLink to='/signup'>signup</NavLink></li>
     </>
     return (
         <div className="navbar fixed z-10 bg-opacity-30 max-w-screen-xl bg-black text-white">

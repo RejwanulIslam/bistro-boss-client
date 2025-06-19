@@ -5,12 +5,12 @@ import Navbar from '../pages/shared/Navbar'
 export default function Main() {
   const location = useLocation()
   //option-1
-  const locationPathname = location.pathname == '/login'
+  const locationPathname = location.pathname == '/login' || location.pathname == '/signup'
 
-   //option-2
+  //option-2
   //const locationPathname = location.pathname.includes('/login')
 
- // console.log(locationPathname)
+   console.log(locationPathname)
   return (
     <div>
       {locationPathname || <Navbar></Navbar>}
