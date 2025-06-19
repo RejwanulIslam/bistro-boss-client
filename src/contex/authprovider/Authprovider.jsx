@@ -7,15 +7,15 @@ export default function Authprovider({ children }) {
     console.log(user)
     const [loding, setloding] = useState(null)
     const passwordAuth = (email, password) => {
-       return createUserWithEmailAndPassword(auth, email, password)
+        return createUserWithEmailAndPassword(auth, email, password)
     }
 
     const passwordLogin = (email, password) => {
-       return signInWithEmailAndPassword(auth, email, password)
+        return signInWithEmailAndPassword(auth, email, password)
     }
 
     const passwordSignOut = () => {
-       return signOut(auth)
+        return signOut(auth)
     }
 
     useEffect(() => {
@@ -31,7 +31,7 @@ export default function Authprovider({ children }) {
         passwordAuth,
         passwordLogin,
         passwordSignOut,
-        
+
 
     }
     return (
