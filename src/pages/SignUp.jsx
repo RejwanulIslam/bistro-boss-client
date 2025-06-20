@@ -11,8 +11,11 @@ export default function SignUp() {
         formState: { errors },
     } = useForm()
     console.log(errors)
-    const onSubmit = (data) => console.log(data)
+    const onSubmit = (data) => {
+        console.log(data)
+        passwordAuth(data.email, data.password)
 
+    }
 
     const handleSingup = (e) => {
         e.preventDefault()
@@ -21,7 +24,6 @@ export default function SignUp() {
         const email = from.email.value
         const password = from.password.value
         console.log(name, email, password)
-        passwordAuth(email, password)
 
 
     }
@@ -53,8 +55,8 @@ export default function SignUp() {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" {...register("password", { required: true, minLength: 6, maxLength: 20 })} placeholder="password" className="input input-bordered" />
-                        
+                            <input type="password" {...register("password", { required: true, minLength: 6, maxLength: 20})} placeholder="password" className="input input-bordered" />
+
                             {errors.password && <span className='text-red-500'>Password is required</span>}
                             {errors.password?.type == 'minLength' && <span className='text-red-500'>Password is under 6 character</span>}
                             {errors.password?.type == 'maxLength' && <span className='text-red-500'>Password is over 20 character</span>}
@@ -64,7 +66,7 @@ export default function SignUp() {
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">SignUp</button>
+                            <input type='submit' value='Sign Up' className="btn btn-primary"></input>
                         </div>
                     </form>
                 </div>
