@@ -5,7 +5,7 @@ export const authContex = createContext(null)
 export default function Authprovider({ children }) {
     const [user, setuser] = useState(null)
     console.log(user)
-    const [loding, setloding] = useState(null)
+    const [loding, setloding] = useState(true)
     const passwordAuth = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
@@ -20,8 +20,16 @@ export default function Authprovider({ children }) {
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
-            if (user) setuser(user)
-            else console.log('User Sign Out')
+            if (user) {
+                setuser(user)
+
+            }
+
+            else{
+              setuser(null)  
+            }
+            setloding(false)
+            
         })
     }, [])
 

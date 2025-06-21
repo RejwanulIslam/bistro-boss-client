@@ -3,14 +3,19 @@ import { NavLink } from 'react-router-dom'
 import { authContex } from '../../contex/authprovider/Authprovider'
 
 export default function Navbar() {
-    const authInfo=useContext(authContex)
-    console.log(authInfo)
+    const {passwordSignOut,user}=useContext(authContex)
+    
     const navOption=<>
     <li><NavLink to='/'>Home</NavLink></li>
     <li><NavLink to='/menu'>Our Menu</NavLink></li>
     <li><NavLink to='/order/salad'>Order Food</NavLink></li>
-    <li><NavLink to='/login'>Login</NavLink></li>
+    
+    {
+        user?<li><button onClick={()=>passwordSignOut()}>SignOut</button></li>:
+        <li><NavLink to='/login'>Login</NavLink></li>
+    }
     <li><NavLink to='/signup'>signup</NavLink></li>
+
     </>
     return (
         <div className="navbar fixed z-10 bg-opacity-30 max-w-screen-xl bg-black text-white">

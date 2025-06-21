@@ -1,27 +1,54 @@
 import { useContext, useState } from 'react';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import { authContex } from '../../contex/authprovider/Authprovider';
+import Swal from 'sweetalert2';
 export default function Login() {
-    const {passwordLogin}=useContext(authContex)
-    const [disable, setdisable]=useState(true)
-    const captchaRef = useRef()
-    useEffect(() => {
-        loadCaptchaEnginge(6)
-    }, [])
+    const { passwordLogin } = useContext(authContex)
+    const [disable, setdisable] = useState(true)
+    // useEffect(() => {
+    //     loadCaptchaEnginge(6)
+    // }, [])
     const handleLogin = (e) => {
         e.preventDefault()
         const form = e.target
         const email = form.email.value
         const password = form.password.value
-        passwordLogin(email,password)
         console.log({ email, password })
+        passwordLogin(email, password)
+            .then(result => {
+                const user = result?.user?.email
+                if (user) {
+                    Swal.fire({
+                        title: "login success full",
+                        showClass: {
+                            popup: `
+                            animate__animated
+                            animate__fadeInUp
+                            animate__faster
+    `
+                        },
+                        hideClass: {
+                            popup: `
+                            animate__animated
+                            animate__fadeOutDown
+                            animate__faster
+    `
+                        }
+                    });
+                }
+                console.log('login success full')
+            })
+            .catch(error => {
+                console.error("Login failed:", error.message);
+            });
+
     }
 
-    const validateCaptchar = () => {
-        const Captcha_value = captchaRef.current.value;
+    const validateCaptchar = (e) => {
+        const Captcha_value = e.target.value;
         console.log(Captcha_value)
-        if(validateCaptcha(Captcha_value)){
+        if (validateCaptcha(Captcha_value)) {
             setdisable(false)
         }
     }
@@ -51,16 +78,15 @@ export default function Login() {
                         </div>
 
 
-                        <div className="form-control">
+                        {/* <div className="form-control">
                             <label className="label">
                                 <LoadCanvasTemplate />
                             </label>
-                            <input type="text" ref={captchaRef} name='captcha' placeholder="type this captcha" className="input input-bordered" required />
-                            <button onClick={validateCaptchar} className='btn btn-outline mt-2 btn-xs'>Validate</button>
+                            <input type="text" onBlur={validateCaptchar} name='captcha' placeholder="type this captcha" className="input input-bordered" required />
 
-                        </div>
+                        </div> */}
                         <div className="form-control mt-6">
-                           <input type='submit'disabled={disable} className="btn btn-primary "></input>
+                            <input type='submit'  className="btn btn-primary "></input>
                             {/* <button disabled={disable} className="btn btn-primary">Login</button> */}
                         </div>
                     </form>
