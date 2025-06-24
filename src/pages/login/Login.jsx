@@ -10,7 +10,7 @@ export default function Login() {
     const navigate = useNavigate()
     const location = useLocation()
     const [disable, setdisable] = useState(true)
-    const from = location?.state?.from?.pathname || '/'
+    const from = location?.state?.from?.pathname || '/'   
     // useEffect(() => {
     //     loadCaptchaEnginge(6)
     // }, [])
