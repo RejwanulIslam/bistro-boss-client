@@ -3,7 +3,7 @@ import { authContex } from '../contex/authprovider/Authprovider'
 import { useForm } from 'react-hook-form'
 
 export default function SignUp() {
-    const { passwordAuth } = useContext(authContex)
+    const { passwordAuth,userUpdateProfile } = useContext(authContex)
     const {
         register,
         handleSubmit,
@@ -14,6 +14,9 @@ export default function SignUp() {
     const onSubmit = (data) => {
         console.log(data)
         passwordAuth(data.email, data.password)
+        .then(res=>{
+            userUpdateProfile(data.name,data.photo)
+        })
 
     }
 
@@ -43,6 +46,15 @@ export default function SignUp() {
                             <input type="text" {...register("name", { required: true })} placeholder="name" className="input input-bordered" />
                             {errors.name && <span className='text-red-500'>Name is required</span>}
                         </div>
+
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Photo URL</span>
+                            </label>
+                            <input type="text" {...register("photo", { required: true })} placeholder="name" className="input input-bordered" />
+                            {errors.name && <span className='text-red-500'>Photo URL is required</span>}
+                        </div>
+
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>

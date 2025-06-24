@@ -3,9 +3,14 @@ import { useEffect } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import { authContex } from '../../contex/authprovider/Authprovider';
 import Swal from 'sweetalert2';
+import { useLocation, useNavigate } from 'react-router-dom';
 export default function Login() {
+
     const { passwordLogin } = useContext(authContex)
+    const navigate = useNavigate()
+    const location = useLocation()
     const [disable, setdisable] = useState(true)
+    const from = location?.state?.from?.pathname || '/'
     // useEffect(() => {
     //     loadCaptchaEnginge(6)
     // }, [])
@@ -36,6 +41,8 @@ export default function Login() {
     `
                         }
                     });
+
+                    navigate(from,{ replace: true })
                 }
                 console.log('login success full')
             })
@@ -86,7 +93,7 @@ export default function Login() {
 
                         </div> */}
                         <div className="form-control mt-6">
-                            <input type='submit'  className="btn btn-primary "></input>
+                            <input type='submit' className="btn btn-primary "></input>
                             {/* <button disabled={disable} className="btn btn-primary">Login</button> */}
                         </div>
                     </form>
