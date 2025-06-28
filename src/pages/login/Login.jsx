@@ -4,6 +4,7 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, val
 import { authContex } from '../../contex/authprovider/Authprovider';
 import Swal from 'sweetalert2';
 import { useLocation, useNavigate } from 'react-router-dom';
+import SosalLogin from '../../compoment/SosalLogin';
 export default function Login() {
 
     const { passwordLogin } = useContext(authContex)
@@ -97,6 +98,8 @@ export default function Login() {
                             {/* <button disabled={disable} className="btn btn-primary">Login</button> */}
                         </div>
                     </form>
+                     <SosalLogin></SosalLogin>
+                   
                 </div>
             </div>
         </div>
