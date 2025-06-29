@@ -9,6 +9,7 @@ import PrivectRoute from "./PrivectRoute";
 import Secret from "../compoment/Secret";
 import Dashbord from "../layout/Dashbord";
 import Cart from "../dashbord/cart/Cart";
+import Allusers from "../pages/login/allusers/Allusers";
 
 const router= createBrowserRouter([
     {
@@ -48,6 +49,12 @@ const router= createBrowserRouter([
         {
          path:"/dashbord/cart",
          element:<Cart></Cart>
+        },
+
+        //admin rotes
+        {
+         path:"/dashbord/allusers",
+         element:<Allusers></Allusers>
         },
       ]
 
