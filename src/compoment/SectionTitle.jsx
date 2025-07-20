@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function SectionTitle({subtitle,title}) {
   return (
     <div className='mx-auto text-center md:w-4/12 my-8'>

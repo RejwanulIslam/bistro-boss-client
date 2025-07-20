@@ -10,6 +10,10 @@ import Secret from "../compoment/Secret";
 import Dashbord from "../layout/Dashbord";
 import Cart from "../dashbord/cart/Cart";
 import Allusers from "../pages/login/allusers/Allusers";
+import AddItem from "../pages/dashbord/AddItem";
+import AdminRoute from "./AdminRoute";
+import ManageItem from "../dashbord/manageItem/ManageItem";
+import UpdateItem from "../dashbord/updateItem/UpdateItem";
 
 const router= createBrowserRouter([
     {
@@ -46,15 +50,29 @@ const router= createBrowserRouter([
       path:'/dashbord',
       element:<PrivectRoute><Dashbord></Dashbord></PrivectRoute>,
       children:[
+        //normal rotues
         {
          path:"/dashbord/cart",
          element:<Cart></Cart>
         },
 
-        //admin rotes
+        //admin rotues
+        {
+         path:"/dashbord/additems",
+         element:<AdminRoute><AddItem></AddItem></AdminRoute>
+        },
         {
          path:"/dashbord/allusers",
          element:<Allusers></Allusers>
+        },
+        {
+         path:"/dashbord/manageitems",
+         element:<ManageItem></ManageItem>
+        },
+        {
+         path:"/dashbord/update/:id",
+         element:<UpdateItem></UpdateItem>,
+         loader:({params})=>fetch(`http://localhost:5000/menu/${params.id}`)
         },
       ]
 
