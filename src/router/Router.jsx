@@ -14,6 +14,7 @@ import AddItem from "../pages/dashbord/AddItem";
 import AdminRoute from "./AdminRoute";
 import ManageItem from "../dashbord/manageItem/ManageItem";
 import UpdateItem from "../dashbord/updateItem/UpdateItem";
+import Payment from "../dashbord/payment/Payment";
 
 const router= createBrowserRouter([
     {
@@ -54,6 +55,10 @@ const router= createBrowserRouter([
         {
          path:"/dashbord/cart",
          element:<Cart></Cart>
+        },
+        {
+         path:"/dashbord/payment",
+         element:<Payment></Payment>
         },
 
         //admin rotues
