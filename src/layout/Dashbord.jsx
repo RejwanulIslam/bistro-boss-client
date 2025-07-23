@@ -13,46 +13,46 @@ export default function Dashbord() {
                 <ul className="menu p-4">
                     {
                         isAdmin ? <>
-                            <li><NavLink className='uppercase' to="/dashbord/adminhome">
+                            <li><NavLink className='text-white uppercase' to="/dashbord/adminhome">
                                 <FaHome></FaHome>
                                 Admin Home</NavLink></li>
 
-                            <li><NavLink className='uppercase' to="/dashbord/additems">
+                            <li><NavLink className='text-white uppercase' to="/dashbord/additems">
                                 <FaUtensils></FaUtensils>
                                 Add Items</NavLink></li>
 
-                            <li><NavLink className='uppercase' to="/dashbord/manageitems">
+                            <li><NavLink className='text-white uppercase' to="/dashbord/manageitems">
                                 <FaShoppingCart></FaShoppingCart>
                                 Manage Items</NavLink></li>
 
-                            <li><NavLink className='uppercase' to="/dashbord/Managebookings">
+                            <li><NavLink className='text-white uppercase' to="/dashbord/Managebookings">
                                 <FaAd></FaAd>
                                 Manage Bookings</NavLink></li>
 
-                            <li><NavLink className='uppercase' to="/dashbord/allusers">
+                            <li><NavLink className='text-white uppercase' to="/dashbord/allusers">
                                 <FaUser></FaUser>
                                 All Users</NavLink></li>
 
-                            <div className="divider">Or</div>
+                            <div className="text-white divider">Or</div>
                         </> :
                             <>
-                                <li><NavLink className='uppercase' to="/dashbord/userhome">
+                                <li><NavLink className='text-white uppercase' to="/dashbord/userhome">
                                     <FaHome></FaHome>
                                     User Home</NavLink></li>
 
-                                <li><NavLink className='uppercase' to="/dashbord/reservation">
+                                <li><NavLink className='text-white uppercase' to="/dashbord/reservation">
                                     <FaCalendar></FaCalendar>
                                     reservation</NavLink></li>
 
-                                <li><NavLink className='uppercase' to="/dashbord/cart">
+                                <li><NavLink className='text-white uppercase' to="/dashbord/cart">
                                     <FaShoppingCart></FaShoppingCart>
                                     My Cart ({data?.length})</NavLink></li>
 
-                                <li><NavLink className='uppercase' to="/dashbord/review">
+                                <li><NavLink className='text-white uppercase' to="/dashbord/review">
                                     <FaAd></FaAd>
                                     Add a Review</NavLink></li>
 
-                                <li><NavLink className='uppercase' to="/dashbord/booking">
+                                <li><NavLink className='text-white uppercase' to="/dashbord/booking">
                                     <FaList></FaList>
                                     My Booking</NavLink></li>
                             </>
@@ -60,19 +60,19 @@ export default function Dashbord() {
                     }
 
                     {/* shared NavLink */}
-                    <li><NavLink  className='uppercase' to="/">
+                    <li><NavLink  className='text-white uppercase' to="/">
                         <FaHome></FaHome>
                         Home</NavLink></li>
 
-                    <li><NavLink className='uppercase' to="/order/salad">
+                    <li><NavLink className='text-white uppercase' to="/order/salad">
                         <FaSearch></FaSearch>
                         Menu</NavLink></li>
 
-                    <li><NavLink className='uppercase' to="/order/salad">
+                    <li><NavLink className='text-white uppercase' to="/order/salad">
                         <FaSearch></FaSearch>
                         Shop</NavLink></li>
 
-                    <li><NavLink className='uppercase' to="/order/contact">
+                    <li><NavLink className='text-white uppercase' to="/order/contact">
                         <FaVoicemail></FaVoicemail>
                         Contact </NavLink></li>
 
