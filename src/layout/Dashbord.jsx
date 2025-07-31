@@ -48,6 +48,10 @@ export default function Dashbord() {
                                     <FaShoppingCart></FaShoppingCart>
                                     My Cart ({data?.length})</NavLink></li>
 
+                                <li><NavLink className='text-white uppercase' to="/dashbord/paymentHistory">
+                                    <FaShoppingCart></FaShoppingCart>
+                                    Payment History</NavLink></li>
+
                                 <li><NavLink className='text-white uppercase' to="/dashbord/review">
                                     <FaAd></FaAd>
                                     Add a Review</NavLink></li>
