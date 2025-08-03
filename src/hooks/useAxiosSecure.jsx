@@ -1,16 +1,20 @@
 import axios from 'axios'
 import useAuth from './useAuth'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'https://bistro-boss-server-tau-puce.vercel.app'
 })
 export default function useAxiosSecure() {
-    const {passwordSignOut}=useAuth()
-    const usenavigate=useNavigate()
-    axiosSecure.interceptors.request.use(function (config) {
-        const token = localStorage.getItem('access-token')
-        console.log('stope', token)
+    const { passwordSignOut, loding } = useAuth()
+    const usenavigate = useNavigate()
 
+    
+    axiosSecure.interceptors.request.use( function (config) {
+       
+         const token =  localStorage?.getItem('access-token')
+        console.log('stope', token)
+       
         config.headers.authorization = `Bearer ${token}`
         return config
     }, function (error) {
@@ -18,18 +22,20 @@ export default function useAxiosSecure() {
         return Promise.reject(error);
     })
 
+
     //intercept 401 and 403
     // Add a response interceptor
     axiosSecure.interceptors.response.use(function (response) {
         return response;
-    },  async(error)=> {
+    }, async (error) => {
         const status = error.response.status
-        if (status == 401 || status == 403){
-             await passwordSignOut()
-              usenavigate('/login')
+        if (status == 401 || status == 403) {
+            await passwordSignOut()
+            usenavigate('/login')
         }
-            return Promise.reject(error);
+        return Promise.reject(error);
     });
+
     return axiosSecure
 }
 

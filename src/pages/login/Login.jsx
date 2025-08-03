@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import { authContex } from '../../contex/authprovider/Authprovider';
 import Swal from 'sweetalert2';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SosalLogin from '../../compoment/SosalLogin';
 export default function Login() {
 
@@ -99,6 +99,7 @@ export default function Login() {
                         </div>
                     </form>
                      <SosalLogin></SosalLogin>
+                     <p className='pb-16 text-center'>If you don't have an account please <Link className='text-yellow-500 font-semibold' to="/signup">Regester</Link></p>
                    
                 </div>
             </div>

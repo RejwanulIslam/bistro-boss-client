@@ -3,15 +3,23 @@ import { NavLink } from 'react-router-dom'
 import { authContex } from '../../contex/authprovider/Authprovider'
 import { FaShoppingCart } from 'react-icons/fa'
 import useCart from '../../hooks/useCart'
+import useAdmin from '../../hooks/useAdmin'
 
 export default function Navbar() {
     const { passwordSignOut, user } = useContext(authContex)
     const [cart] = useCart()
+    const [isAdmin] = useAdmin()
     const navOption = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/menu'>Our Menu</NavLink></li>
         <li><NavLink to='/order/salad'>Order Food</NavLink></li>
-        <li><NavLink to='/secret'>Secret</NavLink></li>
+        {/* <li><NavLink to='/secret'>Secret</NavLink></li> */}
+        {
+            user && isAdmin && <li><NavLink to='/dashbord/adminHome'>Admin Home</NavLink></li>  
+        }
+        {
+            user && !isAdmin && <li><NavLink to='/dashbord/userHome'>User Home</NavLink></li>  
+        }
         <li><NavLink to='/dashbord/cart'>
             <button className='btn'>
                 <FaShoppingCart />

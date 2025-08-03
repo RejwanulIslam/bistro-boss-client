@@ -8,14 +8,17 @@ export default function Authprovider({ children }) {
     const axiosPublick = useAxiosPublick()
     const [loding, setloding] = useState(true)
     const passwordAuth = (email, password) => {
+        setloding(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     const passwordLogin = (email, password) => {
+        setloding(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     const userUpdateProfile = (name, photo) => {
+        setloding(true)
         return updateProfile(auth.currentUser, {
             displayName: name,
             photoURL: photo
@@ -25,6 +28,7 @@ export default function Authprovider({ children }) {
     //google login
     const provider = new GoogleAuthProvider();
     const googleLogin = () => {
+        setloding(true)
         return signInWithPopup(auth, provider)
 
     }
@@ -47,16 +51,19 @@ export default function Authprovider({ children }) {
                     .then(res => {
                         if (res.data.token) {
                             localStorage.setItem('access-token', res.data.token)
+                            console.log('access-token', res.data.token)
                         }
+                        setloding(false)
                     })
+               
             }
             else {
                 //remove token
                 localStorage.removeItem('access-token')
-
+                setloding(false)
 
             }
-            setloding(false)
+
 
         })
         return () => unSuscribe()

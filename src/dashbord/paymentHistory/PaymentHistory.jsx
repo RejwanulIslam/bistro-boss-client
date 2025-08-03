@@ -17,7 +17,7 @@ export default function PaymentHistory() {
   console.log(data)
   return (
     <div>
-      <h2 className='text-3xl'>Total Payment:{data.length}</h2>
+      <h2 className='text-3xl'>Total Payment:{data?.length}</h2>
       <div className="overflow-x-auto">
         <table className="table table-zebra">
           {/* head */}
@@ -32,7 +32,7 @@ export default function PaymentHistory() {
           <tbody>
             {/* row 1 */}
             {
-              data.map((payment,index) => (<tr>
+              data?.map((payment,index) => (<tr>
                 <th>{index+1}</th>
                 <td>{payment?.price}</td>
                 <td>{payment?.transationId}</td>

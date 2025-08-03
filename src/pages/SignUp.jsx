@@ -4,10 +4,12 @@ import { useForm } from 'react-hook-form'
 import useAxiosPublick from '../hooks/useAxiosPublick'
 import Swal from 'sweetalert2'
 import SosalLogin from '../compoment/SosalLogin'
+import { useNavigate } from 'react-router-dom'
 
 export default function SignUp() {
     const { passwordAuth, userUpdateProfile } = useContext(authContex)
     const axiosPublick = useAxiosPublick()
+    const navigate=useNavigate()
     const {
         register,
         handleSubmit,
@@ -34,6 +36,8 @@ export default function SignUp() {
                                         draggable: true
                                     });
                                     reset()
+                                    navigate('/')
+
                                 }
                             })
 
